@@ -10,6 +10,7 @@
 <button onclick="getLocation()">Am I safe from Otters??</button>
 <p id="demo"></p>
 <script>
+var apikey = "**YOURAPIKEYHERE*"
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -27,7 +28,7 @@ function showPosition(position) {
     }
   };
 var latlon = position.coords.latitude + "," + position.coords.longitude;
-var apicall ="http://open.mapquestapi.com/geocoding/v1/reverse?key=**GETYOUROWNAPIKEY**&location="+latlon+"&outFormat=xml";
+var apicall ="http://open.mapquestapi.com/geocoding/v1/reverse?key="+apikey+"&location="+latlon+"&outFormat=xml";
   xmlhttp.open("GET", apicall, true);
   xmlhttp.send();
 }

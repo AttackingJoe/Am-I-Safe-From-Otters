@@ -9,8 +9,8 @@
 	
 <button onclick="getLocation()">Am I safe from Otters??</button>
 <p id="demo"></p>
+<script type="text/javascript" src="api.js"></script> 
 <script>
-var apikey = "**YOURAPIKEYHERE*"
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -24,7 +24,7 @@ function showPosition(position) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      myFunction(this);
+      statelookup(this);
     }
   };
 var latlon = position.coords.latitude + "," + position.coords.longitude;
@@ -33,7 +33,7 @@ var apicall ="http://open.mapquestapi.com/geocoding/v1/reverse?key="+apikey+"&lo
   xmlhttp.send();
 }
 
-function myFunction(xml) {
+function statelookup(xml) {
   var x, i, xmlDoc, txt;
   xmlDoc = xml.responseXML;
   txt = "";
